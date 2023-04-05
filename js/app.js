@@ -1,6 +1,8 @@
 let opciones = ["piedra", "papel", "tijera"];
 let eleccionUsuario;
 let resultado = "";
+let contadorUsuario = 0;
+let contadorPc = 0;
 let bandera = false;
 const btnPiedra = document.getElementById('btnPiedra');
 const btnPapel = document.getElementById('btnPapel');
@@ -28,11 +30,15 @@ function juego (){
       (opciones[eleccionUsuario] === "tijera" && eleccionPC === "papel")
     ) {
       resultado = "Ganaste";
+      contadorUsuario++;
     } else {
       resultado = "Perdiste";
+      contadorPc++;
     }
-  
-      contenedorGanador.innerHTML = `Elegiste ${opciones[eleccionUsuario]}. La PC eligio ${eleccionPC}. ${resultado}!`;
+      contenedorGanador.innerHTML = `Elegiste ${opciones[eleccionUsuario]}. La PC eligio ${eleccionPC}. <b>${resultado}!</b>
+      <p class="display-5 my-1">Victorias:</p>
+      <p>Usuario: ${contadorUsuario}</p>
+      <p>Pc: ${contadorPc}</p>`
   }
 }
 
